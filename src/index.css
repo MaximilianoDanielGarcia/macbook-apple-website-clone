@@ -39,7 +39,8 @@
   --font-medium: "Medium";
   --font-semibold: "SemiBold";
   --font-bold: "Bold";
-  --color-primary: #0071e3;
+  --color-primary: #389CFF;
+  --color-primary-dark: #0057AD;
   --color-dark-100: #86868b;
   --color-dark-200: #2e2e30;
   --color-light-100: #adb5bd;
@@ -132,7 +133,7 @@ body {
     }
 
     button {
-      @apply relative z-10 bg-primary text-white py-2 px-6 mt-10 lg:mt-0 mb-5 rounded-full font-semibold text-lg cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ease-in-out;
+      @apply relative z-10 bg-primary-dark shadow-md shadow-primary hover:shadow-none text-white py-2 px-6 mt-10 lg:mt-0 mb-5 rounded-full font-semibold text-lg cursor-pointer hover:bg-white hover:text-black transition-all duration-300 ease-in-out;
     }
 
     p {
