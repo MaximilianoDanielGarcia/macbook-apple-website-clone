@@ -8,7 +8,7 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import { useGLTF, useVideoTexture } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import useMacbookStore from '../../store';
 import { useEffect } from 'react';
 import { noChangeParts } from '../../lib/constants';
@@ -18,7 +18,7 @@ export function MacbookModel(props) {
   const { color, texture } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF('/models/macbook-transformed.glb');
 
-  const screen = useVideoTexture(texture);
+  const screen = useTexture(texture);
 
   useEffect(() => {
 

@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber"
 import StudioLights from "./three/StudioLights"
-import { features, featureSequence } from "../lib/constants"
+import { features } from "../lib/constants"
 import { clsx } from "clsx"
-import { Suspense, useEffect, useRef } from "react"
+import { Suspense, useRef } from "react"
 import { Html } from "@react-three/drei"
 import { useMediaQuery } from "react-responsive"
 import { MacbookModel } from "./models/Macbook"
@@ -14,23 +14,6 @@ const ModelScroll = () => {
   const groupRef = useRef(null)
   const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
   const { setTexture } = useMacbookStore();
-
-  useEffect(() => {
-    featureSequence.forEach((feature, index) => {
-      const v = document.createElement('video');
-
-      Object.assign(v, {
-        src: feature.videoPath,
-        loop: true,
-        muted: true,
-        playsInline: true,
-        preload: 'auto',
-        crossOrigin: 'anonymous',
-      })
-
-      v.load();
-    });
-  }, [])
 
   useGSAP(() => {
 
@@ -67,19 +50,19 @@ const ModelScroll = () => {
 
     // Content & Texture Sync
 
-    timeline.call(() => setTexture('/videos/feature-1.mp4'))
+    timeline.call(() => setTexture('/performance1.webp'))
       .to('.box1', { opacity: 1, y: 0, delay: 1 })
 
-      .call(() => setTexture('/videos/feature-2.mp4'))
+      .call(() => setTexture('/performance2.webp'))
       .to('.box2', { opacity: 1, y: 0 })
 
-      .call(() => setTexture('/videos/feature-3.mp4'))
+      .call(() => setTexture('/performance3.webp'))
       .to('.box3', { opacity: 1, y: 0 })
 
-      .call(() => setTexture('/videos/feature-4.mp4'))
+      .call(() => setTexture('/performance4.webp'))
       .to('.box4', { opacity: 1, y: 0 })
 
-      .call(() => setTexture('/videos/feature-5.mp4'))
+      .call(() => setTexture('/performance5.webp'))
       .to('.box5', { opacity: 1, y: 0 });
 
   }, [])
